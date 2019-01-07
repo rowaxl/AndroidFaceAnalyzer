@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="720dp"
+        android:layout_height="480dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/results"
+        app:layout_constraintBottom_toTopOf="@+id/control"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/face_analyze_results"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/results"
+        app:layout_constraintEnd_toEndOf="@+id/results"
+        app:layout_constraintStart_toStartOf="@+id/results"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/results"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/control"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/container"
+        app:layout_constraintTop_toBottomOf="@+id/text_title">
+
+        <TextView
+            android:id="@+id/text_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_smile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_anger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_fear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_contempt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_disgust"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_happiness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_neutral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_sadness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+
+        <TextView
+            android:id="@+id/text_surprise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14pt" />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/control"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/frame_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/control_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    <Button
+        android:id="@+id/picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/picture" />
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
