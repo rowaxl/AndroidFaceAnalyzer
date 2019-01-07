@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FaceAPISample</string>
+    <string name="button">Capture</string>
+    <string name="face_api_endpoint">"put your API Endpoint"</string>
+    <string name="face_api_key">"put your API Key"</string>
+    <string name="image_with_faces_to_analyze">Image with faces to analyze</string>
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="face_analyze_results">Face analyze results</string>
+    <string name="text_age">Age: %1$s</string>
+    <string name="text_gender">Gender: %1$s</string>
+    <string name="text_smile">Smile: %1$s</string>
+    <string name="text_anger">Anger: %1$s</string>
+    <string name="text_fear">Fear: %1$s</string>
+    <string name="text_contempt">Contempt: %1$s</string>
+    <string name="text_disgust">Disgust: %1$s</string>
+    <string name="text_neutral">Neutral: %1$s</string>
+    <string name="text_happiness">Happiness: %1$s</string>
+    <string name="text_sadness">Sadness: %1$s</string>
+    <string name="text_surprise">Surprise: %1$s</string>
+</resources>
