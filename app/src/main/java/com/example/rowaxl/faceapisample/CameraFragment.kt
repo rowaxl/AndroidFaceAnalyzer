@@ -20,7 +20,7 @@ package com.example.rowaxl.faceapisample
  * # Modified
  * - CameraFragment only render camera preview in TextureView.
  * - Block to use back camera cause this project only use front one.
- * - Only use captureStillPicture(), and delete AF related functions.
+ * - Only use captureStillPicture().
  * - Picture size is fixed(800 x 600).
  * - Orientation is fixed on landscape.
  *
@@ -636,6 +636,7 @@ class Camera2BasicFragment : Fragment(),
                                                 result: TotalCaptureResult) {
                     activity!!.showToast("Saved: $file")
                     Log.d(TAG, file.toString())
+                    unlockFocus()
 
                     // キャプチャー成功を通知
                     EventBus.getDefault().post(Events.SuccessCapture())
@@ -647,6 +648,28 @@ class Camera2BasicFragment : Fragment(),
                 abortCaptures()
                 capture(captureBuilder!!.build(), captureCallback, null)
             }
+        } catch (e: CameraAccessException) {
+            Log.e(TAG, e.toString())
+        }
+
+    }
+
+    /**
+     * Unlock the focus. This method should be called when still image capture sequence is
+     * finished.
+     */
+    private fun unlockFocus() {
+        try {
+            // Reset the auto-focus trigger
+            previewRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER,
+                    CameraMetadata.CONTROL_AF_TRIGGER_CANCEL)
+
+            captureSession?.capture(previewRequestBuilder.build(), captureCallback,
+                    backgroundHandler)
+            // After this, the camera will go back to the normal state of preview.
+            state = STATE_PREVIEW
+            captureSession?.setRepeatingRequest(previewRequest, captureCallback,
+                    backgroundHandler)
         } catch (e: CameraAccessException) {
             Log.e(TAG, e.toString())
         }

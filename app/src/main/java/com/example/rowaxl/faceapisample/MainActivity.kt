@@ -95,6 +95,9 @@ class MainActivity : AppCompatActivity() {
                 textSurprise.text = String.format(getString(R.string.text_surprise), face.faceAttributes.emotion.surprise)
             }
         }
+        if (cameraFragment.file.exists())
+            cameraFragment.file.delete()
+
     }
 
     override fun onDestroy() {
@@ -104,7 +107,7 @@ class MainActivity : AppCompatActivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun successCapture(event: Events.SuccessCapture) {
-        if (cameraFragment.file.canRead()) {
+        if (cameraFragment.file.exists()) {
             callFaceApi(cameraFragment.file)
         }
     }
